@@ -1,0 +1,80 @@
+<!doctype html>
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/interfaceService.css"/>
+    <style>
+        #topbanner{
+            width:100%;
+            height:60px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body style="background:#f2f2f2;">
+<div id="topbanner">
+    <img src="/static/images/logo.png">
+</div>
+<div class="jkfw-box" style="top:60px !important;">
+    <!-- 左侧列表 -->
+    <div class="leftmenu">
+        <div class="lt_system">
+            <span class="lt_tit">功能菜单</span>
+            <ul class="nav_list">
+                <li>
+                    <span class="onebtn more_up more_up_pre">数据匹配</span>
+                    <ul class="more_list" >
+                        <li>
+                            <!--<a class="twobtn lt-active" target="contentInterface" href="toStandardAddressSearchPage">地址信息检索服务</a>-->
+                            <a class="twobtn lt-active">标准地址匹配</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="onebtn more_up">服务配置</span>
+                    <ul class="more_list" style="display: none;">
+                        <li>
+                            <a class="twobtn" >服务配置修改</a>
+                            <!--<a class="twobtn" target="contentInterface" href="toStandardAddressFeedbackPage" >标准地址反馈接口</a>-->
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="onebtn more_up">使用说明</span>
+                    <ul class="more_list" style="display: none;">
+                        <li>
+                            <a class="twobtn">使用说明查看</a>
+                            <!--<a class="twobtn" target="contentInterface" href="toAddressParticiplePage">地址分词接口</a>-->
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="center-right-nr" style="height:97%">
+        <!-- 内容主体区域 -->
+        <iframe name="contentInterface" src="/loginController/toLoginPage" style="display: block;width: 100%;height: 100%" frameborder="0" scrolling="yes"></iframe>
+    </div>
+</div>
+
+<!--js-->
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!--选中-->
+<script  type="text/javascript">
+    // 伸缩展示js
+    $(".more_up").click(function () {
+        $(this).toggleClass("more_up_pre");
+        $(this).next(".more_list").slideToggle();
+    });
+    $(".nav_list li a").click(function () {
+        $(this).addClass("lt-active");
+        $(this).parents("li").siblings().find("a").removeClass("lt-active");
+    });
+</script>
+</body>
+</html>

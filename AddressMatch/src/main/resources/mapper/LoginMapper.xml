@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.speedchina.AddressMatch.dao.LoginDao">
+
+
+    <resultMap type="com.speedchina.AddressMatch.model.SysUser" id="BaseResultMap">
+        <result property="id" column="id" javaType="String"/>
+        <result property="userName" column="user_name" javaType="String"/>
+        <result property="password" column="password" javaType="String"/>
+        <result property="roleName" column="role_name" javaType="String"/>
+        <result property="trueName" column="true_name" javaType="String"/>
+        <result property="userDesc" column="user_desc" javaType="String"/>
+        <result property="createTime" column="create_time" javaType="Date"/>
+        <result property="status" column="status" javaType="String"/>
+    </resultMap>
+
+    <sql id="full-columns">
+        t.id,
+        t.user_name,
+        t.password,
+        t.role_name,
+        t.true_name,
+        t.user_desc,
+        t.create_time,
+        t.status
+    </sql>
+
+    <!--根据用户名查找用户-->
+    <select id="findUserByName" resultMap="BaseResultMap">
+        select
+        <include refid="full-columns"/>
+        from sys_user t
+        WHERE user_name = #{userName} and password= #{password} AND STATUS !=0
+    </select>
+
+
+
+
+</mapper>
