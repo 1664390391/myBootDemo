@@ -1,0 +1,135 @@
+.operate a {
+    margin: 10px 5px;
+}
+
+.distance {
+    margin-right: 20px;
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#pagebox {
+    float: right;
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+}
+
+#pageul {
+    width: 100%;
+    height: 100%;
+}
+
+#pageul li {
+    display: block;
+    float: left;
+    height: 100%;
+    cursor: pointer;
+}
+
+#zhuanye {
+    float: left;
+    line-height: 32px;
+}
+
+#datanumDiv {
+    line-height: 32px;
+    float: left;
+    padding-right: 5px;
+}
+
+#datatotalDiv {
+    line-height: 32px;
+    float: right;
+    padding-left: 5px;
+}
+
+/*前后页*/
+.first, .last {
+    width: 35px;
+}
+
+.first {
+    background: url(../images/first-1.png) center;
+    border: 0px;
+    border-right: 1px solid #dddddd;
+    -webkit-transition: 0.7s all;
+    -moz-transition: 0.7s all;
+    -o-transition: 0.7s all;
+    -ms-transition: 0.7s all;
+}
+
+.first:hover {
+    background: url(../images/first-2.png) center
+}
+
+.last {
+    background: url(../images/last-1.png) center;
+    -webkit-transition: 0.7s all;
+    -moz-transition: 0.7s all;
+    -o-transition: 0.7s all;
+    -ms-transition: 0.7s all;
+}
+
+.last:hover {
+    background: url(../images/last-2.png) center;
+}
+
+.pages {
+    width: 30px;
+    line-height: 28px;
+    text-align: center;
+    color: #0077d6;
+    border: 0px;
+    border-right: 1px solid #dddddd;
+    -webkit-transition: 0.7s all;
+    -moz-transition: 0.7s all;
+    -o-transition: 0.7s all;
+    -ms-transition: 0.7s all;
+}
+
+.pages:hover {
+    color: #333;
+}
+
+.on {
+    color: #333;
+}
+
+.pre {
+    background: url(../images/pre-1.png) center;
+    width: 30px;
+    border: 0px;
+    border-right: 1px solid #dddddd;
+    -webkit-transition: 0.7s all;
+    -moz-transition: 0.7s all;
+    -o-transition: 0.7s all;
+    -ms-transition: 0.7s all;
+}
+
+.pre:hover {
+    background: url(../images/pre-2.png) center;
+}
+
+.next {
+    background: url(../images/next-1.png) center;
+    width: 30px;
+    border: 0px;
+    border-right: 1px solid #dddddd;
+    -webkit-transition: 0.7s all;
+    -moz-transition: 0.7s all;
+    -o-transition: 0.7s all;
+    -ms-transition: 0.7s all;
+}
+
+.next:hover {
+    background: url(../images/next-2.png) center;
+}
+
+.reg_table tr td {
+    line-height: 40px;
+}

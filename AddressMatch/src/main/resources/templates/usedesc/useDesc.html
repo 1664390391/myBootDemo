@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <style>
+        .style1{
+            font-weight:700;
+        }
+
+        .style2{
+            font-weight:400;
+        }
+    </style>
+</head>
+<body>
+<div style="padding-left: 20px">
+
+    <p style="font-size:20px;"><span class="style1">镇江警用地址匹配工具</span>
+    </p>
+    <p style="font-size:18px;"><span
+            class="style1">项目依赖</span></p>
+    <p style="font-size:13px;"><span class="style2">镇江警用地址匹配工具依赖于镇江警用地址共享服务，使用本工具前请确保共享服务运行正常。</span>
+    </p>
+    <p style="font-size:18px;"><span class="style1">系统配置-服务配置</span>
+    </p>
+    <p style="font-size:13px;"><span
+            class="style2">管理员可以根据共享服务情况配置管理服务信息。</span></p>
+    <p style="font-size:13px;"><span class="style2">服务信息包含：</span></p>
+    <p style="font-size:13px;"><span class="style2">&nbsp;服务名称</span></p>
+    <p style="font-size:13px;"><span class="style2">&nbsp;服务地址</span></p>
+    <p style="font-size:13px;"><span class="style2">&nbsp;服务描述</span></p>
+    <p style="font-size:18px;"><span
+            class="style1">数据匹配</span></p>
+    <p style="font-size:13px;"><span class="style2">点击数据匹配进入匹配列表页面</span>
+    </p>
+    <p style="font-size:16px;"><span
+            class="style1">数据导入</span></p>
+    <p style="font-size:13px;"><span class="style1">step 1 选择所需要匹配的服务</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">例如：</span></p>
+    <p style="font-size:13px;"><span
+            class="style2">选择标准地址共享服务-匹配获取坐标</span></p>
+    <p style="font-size:13px;"><span class="style2">选择社区居村委会共享服务-匹配获取对应机构代码</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">选择街路巷共享服务-匹配获取其上级所属行政区划</span>
+    </p>
+    <p style="font-size:13px;"><span class="style1">step 2 为本次导入批次创建任务名称与任务说明</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">例如：</span></p>
+    <p style="font-size:13px;"><span class="style2">任务名称：京口区旅馆数据</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">任务描述：通过比对确认该批次数据 所属警务责任区。</span>
+    </p>
+    <p style="font-size:13px;"><span class="style1">step 3 选择任务目标匹配模式并导入数据</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">例如：</span></p>
+    <p style="font-size:13px;"><span class="style2">1、目标：补充坐标、获取所属辖区、所属行政区划等信息</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">2、匹配模式：分词匹配（根据文本智能获取匹配度最高的数据，每条导入数据都会关联到一条地址 效率高）、精确匹配（只有名称字段完全一致才会匹配 精确度高）</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">3、选择excel文件导入</span>
+    </p>
+    <p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;color:#5E5E5E;">注：选择的excel文件需格式需和选择服务的模板对应。</span>
+    </p>
+    <p style="font-size:18px;"><span
+            class="style1">数据匹配</span></p>
+
+    <p style="font-size:13px;"><span
+            class="style2">选中单个批次，点击匹配打开匹配页面</span></p>
+    <p style="font-size:13px;"><span class="style2">数据列表左侧的为excel原始数据，右侧为用户定义的目标字段，用户点击匹配按钮即可打开匹配弹窗进行数据匹配。</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">匹配中可以暂停，可以保存当前匹配结果，也可以取消本次匹配操作。匹配时会将匹配到的结果补充至对应数据右侧，用户可以分页查看。</span>
+    </p>
+    <p style="font-size:13px;"><span class="style2">点击导出按钮可以将本次匹配结果导出，若任务未完成则提示数量与进度并询问是否继续。</span>
+    </p>
+    <p style="font-size:18px;"><span
+            class="style1">删除任务</span></p>
+    <p style="font-size:13px;"><span class="style2">用户可以选中并删除导入的任务，若选中了任务尚未完成的任务则提示数量与进度并询问是否继续。</span>
+    </p>
+
+</div>
+</body>
+
+</html>

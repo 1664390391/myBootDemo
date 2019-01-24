@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style_index.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style_table.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style_search.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/plugins/layui/css/layui.css"/>
+
+</head>
+<body>
+<div id="form-box">
+
+    <div style="min-width:1100px;text-align: center; ">
+        <!--条件查询 start-->
+        <form class="layui-form">
+            <div class="layui-input-inline distance">
+                处理状态:
+                <div class="layui-input-inline distance">
+                    <select class="layui-input" tabindex="8" id="isHandle">
+                        <option value="">--全部--</option>
+                        <option value="1">已处理</option>
+                        <option value="0">未处理</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-input-inline distance">
+                记录时间:
+                <div class="layui-input-inline distance">
+                    <input type="text" class="layui-input" id="startDate" name="startDate" placeholder="请选择起始时间">
+                </div>
+                到
+                <div class="layui-input-inline distance">
+                    <input type="text" class="layui-input" id="endDate" name="endDate" placeholder="请选择结束时间">
+                </div>
+            </div>
+            <div class="layui-input-inline distance">
+                任务名称:
+                <div class="layui-input-inline distance">
+                    <input type="text" class="layui-input" id="taskName" placeholder="请输入任务名称"/>
+                </div>
+            </div>
+            <button class="btn btn-danger" style="margin-left: 20px;" type="reset">清&nbsp;&nbsp;除</button>
+            <button class="btn btn-info" style="margin-left: 20px;" type="button" onclick="search()">搜&nbsp;&nbsp;索
+            </button>
+        </form>
+        <hr/>
+    </div>
+    <!--内容-->
+    <div class="standardcontentbox">
+        <!--table start-->
+        <table id="table" width="100%" class="one_table reg_table">
+            <tr>
+                <th style="width: 25px"></th>
+                <th>
+                    任务名称
+                </th>
+                <th>
+                    任务描述
+                </th>
+                <th>
+                    添加时间
+                </th>
+                <th>
+                    处理状态
+                </th>
+
+            </tr>
+            <tr id="rowTempalte" style="display: none">
+                <td id="td0"></td>
+                <td id="td1"></td>
+                <td id="td2"></td>
+                <td id="td3"></td>
+                <td id="td4"></td>
+            </tr>
+        </table>
+        <!--table end-->
+
+        <div style="overflow: hidden;">
+            <!--分页栏start-->
+            <div id="zhuanye" style="margin-top: 10px;">
+                <div id="datanumDiv">显示</div>
+                <select id="rows" style="float:left;margin-top: 7px;" onchange="search()">
+                    <option class="xialashu">10</option>
+                    <option class="xialashu">20</option>
+                    <option class="xialashu">50</option>
+                </select>
+                <div id="datatotalDiv">条记录</div>
+            </div>
+            <div id="pagebox" style="margin-top: 10px;">
+                <ul id="pageul">
+                    <li class="first" id="first" onclick="firstpage()"></li>
+                    <li class="pre" id="pre" onclick="prePage()"></li>
+                    <li class="pages on" id="page">1</li>
+                    <li class="next" id="next" onclick="nextPage()"></li>
+                    <li class="last" id="last" onclick="lastpage()"></li>
+                    <li class="pages on" style="width:100px">共<span id="count"></span>条数据</li>
+                </ul>
+                <div style="clear:both;"></div>
+            </div>
+            <!--分页栏end-->
+        </div>
+
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/scripts/search_Pagination.js"></script>
+<script type="text/javascript" src="/static/plugins/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/static/plugins/easyui/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/static/plugins/layui/layui.all.js"></script>
+<script>
+    /**
+     * @Date: 2017/12/8
+     * Description:日期id绑定渲染
+     */
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#startDate' //指定元素
+        });
+        laydate.render({
+            elem: '#endDate' //指定元素
+        });
+    });
+
+    $(function () {
+        // queryData(10, 1);
+    });
+
+
+    function queryData(pageSize, pageNum) {
+        var param = {
+            "isHandle": $("#isHandle").val(),
+            "startDate": $("#startDate").val(),
+            "endDate": $("#endDate").val(),
+            "taskName": $("#taskName").val(),
+            "pageNum": pageNum,
+            "pageSize": pageSize
+        };
+        console.log(param)
+        layer.load(1);
+        $.ajax({
+            type:"post",
+            url:'/address/getAddrTaskList',
+            data:param,
+            dataType:"json",
+            success: function (resp) {
+                layer.closeAll("loading");
+                if (resp.total > 0) {
+                    console.log(resp)
+                    addrow(resp);
+                    countTotalByParams(resp.total);
+                } else {
+                    layer.msg("未查询到数据")
+                }
+            },
+            error: function () {
+                layer.closeAll("loading");
+                alert("服务器异常！")
+            }
+        })
+    }
+
+    <!-- 显示总数量 -->
+    function countTotalByParams(total) {
+        $('#count').html(total);
+    }
+
+    //序号
+    var serialNum = 1;
+
+    function addrow(data) {
+        deleterow();
+        var tr = $("#rowTempalte");
+        var newtr;
+        $(data.resultList).each(function (i, element) {
+         /*   $(data.rows).map(function (index, item) {
+                switch (item.status) {
+                    case "0" :
+                        item.status = "失败";
+                        break;
+                    case "1" :
+                        item.status = "成功";
+                        break;
+                }
+                return item;
+            });*/
+            newtr = tr.clone(true).attr('id', 'rowTempalte' + serialNum);
+            newtr.css("display", "table-row");
+            newtr.find("td#td0").html(i + 1);
+            newtr.find("td#td1").html(element.taskName);
+            newtr.find("td#td2").html(element.taskDesc);
+            newtr.find("td#td3").html(element.addTime);
+            newtr.find("td#td4").html(element.isHandle);
+
+            tr.after(newtr);
+            tr = newtr;
+            serialNum = serialNum + 1;
+
+        });
+    }
+
+    function deleterow() {
+        var length = $("#table tr").length - 2;
+        for (var j = length; j > 0; j--) {
+            $("#table tr:eq(" + (j + 1) + ")").remove();
+        }
+    }
+
+    //查询数据
+    function search() {
+        $('#page').text(1);
+        queryData($('#rows').val(), 1);
+    }
+
+</script>
+</body>
+</html>

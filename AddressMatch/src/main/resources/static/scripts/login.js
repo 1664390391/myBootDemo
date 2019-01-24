@@ -2,22 +2,21 @@
 function DoLogin() {
     $.ajax({
         type:"post",
-        url:'/loginController/loginByInfo',
+        url:'/login/loginByInfo',
         data:{"userName":$("#userName").val(),"password":$("#password").val()},
         dataType:"json",
         success: function (data) {
-        if(data.responseCode == 200){
-            window.location.href="/loginController/toIndexPage";
-        }else if(data.responseCode == 400){
-            alert("登录失败，请校验用户名/密码")
-        }else{
+            if(data.responseCode == 200){
+                window.location.href="/login/toIndexPage";
+            }else if(data.responseCode == 400){
+                alert("登录失败，用户名/密码错误")
+            }else{
+                alert("服务器异常！")
+            }
+        },
+        error: function () {
             alert("服务器异常！")
         }
-    },
-        error: function () {
-        alert("服务器异常！")
-    }
-
     })
 }
 
@@ -27,3 +26,4 @@ $(document).keydown(function (event) {
         $("#loginin").click();
     }
 });
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.speedchina.AddressMatch.dao.InterfaceServerDao">
+	<resultMap type="com.speedchina.AddressMatch.model.InterfaceServer" id="BaseResultMap">
+        <result property="id" column="id" javaType="String"/>
+        <result property="interfaceName" column="interface_name" javaType="String"/>
+        <result property="interfaceDesc" column="interface_desc" javaType="String"/>
+        <result property="interfacePath" column="interface_path" javaType="String"/>
+        <result property="status" column="status" javaType="Integer"/>
+	</resultMap>
+	
+	<sql id="full-columns" >
+        t.id,
+        t.interface_name,
+        t.interface_desc,
+        t.interface_path,
+        t.status
+	</sql>
+		
+
+
+	<insert id="saveInterfaceServer" parameterType="com.speedchina.AddressMatch.model.InterfaceServer">
+		INSERT INTO interface_server(
+				id,
+	            interface_name ,
+	            interface_desc ,
+	            interface_path ,
+	            status 
+		)
+		VALUES (
+				#{id},
+	        	#{interfaceName},
+	        	#{interfaceDesc},
+	        	#{interfacePath},
+	        	#{status}
+		)
+	</insert>
+
+	<update id="updateParamsById" parameterType="com.speedchina.AddressMatch.model.InterfaceServer">
+		UPDATE interface_server
+		<set>
+			<if test="interfaceName != null and interfaceName != ''">
+				interface_name = #{interfaceName},
+			</if>
+			<if test="interfaceDesc != null and interfaceDesc != ''">
+				interface_desc = #{interfaceDesc},
+			</if>
+			<if test="interfacePath != null and interfacePath != ''">
+				interface_path = #{interfacePath},
+			</if>
+			<if test="status != null and status != ''">
+				status = #{status},
+			</if>
+		</set>
+		WHERE  id =  #{id}
+	</update>
+
+
+	<select id="selectByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT <include refid="full-columns" />
+	    FROM interface_server t
+		<where>
+			<if test="interfaceName != null and interfaceName != ''">
+				AND t.interface_name = #{interfaceName}
+		    </if>
+			<if test="interfaceDesc != null and interfaceDesc != ''">
+				AND t.interface_desc = #{interfaceDesc}
+		    </if>
+			<if test="interfacePath != null and interfacePath != ''">
+				AND t.interface_path = #{interfacePath}
+		    </if>
+		</where>
+	</select>
+
+
+</mapper>

@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+table{
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+
+a{
+	text-decoration: none;
+}
+input{
+	border: 1px solid #ededed;
+}
+input:focus{
+	border: 1px solid #b3b3b3;
+}
+button{
+	border: none;
+	/*border-radius: 16px;*/
+	padding:7px 16px ;
+	cursor: pointer;
+}
+
+/*地址审核*/
+.checkbox{
+	padding: 0 70px;
+}
+.check_input{
+	width: 200px;
+	height:32px;
+	padding: 0 8px;
+}
+.time_input{
+	width: 100px;
+	height: 32px;
+	padding: 0 8px;
+}
+.searchbox{
+	padding: 15px 0;
+	border-bottom: 1px solid #ddd;
+}
+.inputone:first-child{
+	margin-left: 0px !important;
+}
+.inputone{
+	margin:0 0 0 20px  ;
+	float: left;
+}
+.green_btn{
+	background-color: #69be7c;
+	color: #fff;
+	margin-left:15px;
+	border: 1px solid #1dae32;
+}
+.red_btn{
+	background-color: #f36872;
+	color: #fff;
+	margin-left: 15px;
+	border: 1px solid #d94751;
+}
+.back_btn{
+	float: right;
+}
+.back_btn img{
+	float: left;
+	margin: 8px;
+}
+.back_btn span{
+	float: left;
+	color: #6095d3;
+	line-height: 30px;
+}
+.back_btn:hover span{
+	color: #3662A8;
+}
+.back_btn1{
+	float: inherit;
+}
+
+.back_btn1 img{
+	float: left;
+	margin: 8px;
+}
+.back_btn1 span{
+	float: left;
+	color: #6095d3;
+	line-height: 30px;
+}
+.back_btn1:hover span{
+	color: #3662A8;
+}
+.green_btn:hover{
+	background-color: #59b66d;
+}
+.red_btn:hover{
+	background-color: #ed1412;
+}
+.gray_btn{
+	background-color: #ccc;
+	color: #fff;
+	margin-left: 15px;
+	border: 1px solid #bababa;
+}
+.gray_btn:hover{
+	background-color: #3872B6;
+}
+.blue_btn{
+	background-color: #6095d3;
+	color: #fff;
+	margin-left: 15px;
+	border: 1px solid #bababa;
+}
+.blue_btn:hover{
+	background-color: #8c8ac7;
+}
+
+
+
+/*地址元素经纬度输入框*/
+.lnglat{
+	border: 1px solid #ddd;
+	padding: 6px 8px;
+	width:100%;
+}
+
+.green_btn2:hover {
+	background-color: #59b66d;
+}
+.green_btn2 {
+	background-color: #69be7c;
+	color: #fff;
+	margin-left: 20px;
+	border: 1px solid #1dae32;
+	padding: 7px 16px;
+	float: right;
+}
+
+.red_btn2:hover {
+	background-color: #ed1412;
+}
+
+.red_btn2 {
+	background-color: #f36872;
+	color: #fff;
+	margin-left: 20px;
+	border: 1px solid #d94751;
+	float: right;
+	padding: 7px 16px;
+}
+
+/**
+ * @Date: 2018/8/23
+ * Description:地址元素详情页面 label
+ */
+.layui-form-label {
+	padding: 9px 0px;
+}
+
+.layui-form-item{
+	margin-top: 10px;
+}
+.value_lable{
+	margin-left: 20px;
+	font-size: initial;
+	width: 330px;
+	text-align: left;
+}
+
+/*地址元素、地址资源弹窗页面样式 start*/
+.add_page_location_div{
+	z-index: 1000;
+	width: 140px;
+	position: absolute;
+	/*margin-top: 385px;
+	margin-left: 480px;*/
+	margin-top: 300px;
+	margin-left: 540px;
+}
+
+.add_page_mapDiv{
+	height:360px;
+	width:700px;
+	border:1px solid gray;
+	z-index: 0;
+}
+#fm .div_left{
+	margin-bottom:10px ;
+	float: left
+}
+#fm .div_right{
+	margin-bottom:10px;
+	float: right ;
+	margin-right: 10px;
+}
+#fm .select_gray{
+	width:200px;
+	height:34px;
+	border:1px solid #ccc ;
+	margin-right: -10px
+}
+#fm .input_active{
+	width:182px;
+	border:1px solid #ccc ;
+	margin-right: -10px
+}
+#fm .input_active{
+	width:182px;
+	border:1px solid #ccc ;
+	margin-right: -10px
+}
+#fm .span_left{
+	margin-right: 23px;
+}
+.add_page_submit_div{
+	float: right;
+	text-align: center;
+	margin-top:15px;
+	margin-right: 275px;
+}
+
+.basemaps {
+	position: absolute;
+	bottom: 54px;
+	right: -7px;
+}
+#fm .right_div{
+	display: inline-block;
+	margin: 10px 0 10px 20px;
+	position: relative;
+	left: 30px;
+}
+#fm .left_div{
+	display: inline-block;
+	margin: 10px 0 10px 20px;
+}
+
+/*地址元素、地址资源弹窗页面样式 end*/
+
+/**/
+.detail_lifecycle_btn{
+	position: absolute;
+	right: 100px;
+}
+.detail_close_btn{
+	position: absolute;
+	right: 20px;
+}
+.reg_table tr td{
+	line-height: 40px;
+}
+
+
+
